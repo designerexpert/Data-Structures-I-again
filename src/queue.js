@@ -1,3 +1,19 @@
+class Stack {
+  constructor() {
+    this.storage = [];
+  }
+  get size() {
+    return this.storage.length;
+  }
+  push(item) {
+    return this.storage.push(item)
+  }
+
+  pop() {
+    if (this.size < 1) return undefined;
+    return this.storage.pop();
+  }
+}
 /*
   1. Add a constructor with a storage structure; there are multiple options you could use for this
   2. Add a size getter that returns the number of items the queue is storing
