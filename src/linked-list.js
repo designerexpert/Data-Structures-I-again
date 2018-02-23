@@ -1,4 +1,4 @@
-/* eslint-disable class-methods-use-this */
+/* eslint-disable */
 class LinkedList {
   constructor() {
     this.head = null;
@@ -22,13 +22,21 @@ class LinkedList {
   // Removes the current head node from the list, replacing it with the next element in the list
   // Returns the value of the removed node
   removeHead() {
-
+    if (!this.head) return null;
+    const getHead = this.head;
+    this.head = this.head.next;
+    return getHead;
   }
   // Checks the linked list for the given value
   // Returns true if the the value is found in the list, false otherwise
   contains(value) {
-
+    let current = this.head;
+    while (current.value !== value && current.next) {
+      current = current.next;
+    }
+    return current.value === value;
   }
 }
+
 
 module.exports = LinkedList;
